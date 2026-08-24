@@ -14,7 +14,7 @@ def argmax_rows(matrix):
 import numpy as np
 
 def row_max(matrix):
-    return np.max(matrix, axis = -1, keepdims = True)
+    return np.max(matrix, axis = 1, keepdims = True)
 
 # Step 3 - row_sum
 import numpy as np
@@ -31,8 +31,9 @@ def exp_shifted(logits):
     shifted = logits - row_max(logits)
     return np.exp(shifted)
 
-# Step 5 - stable_softmax (not yet solved)
-# TODO: implement
+# Step 5 - stable_softmax
+def stable_softmax(logits):
+    return exp_shifted(logits) / row_sum(logits)
 
 # Step 6 - one_hot (not yet solved)
 # TODO: implement
