@@ -33,7 +33,8 @@ def exp_shifted(logits):
 
 # Step 5 - stable_softmax
 def stable_softmax(logits):
-    return exp_shifted(logits) / row_sum(logits)
+    shifted_exp = exp_shifted(logits)
+    return shifted_exp / row_sum(shifted_exp)
 
 # Step 6 - one_hot (not yet solved)
 # TODO: implement
